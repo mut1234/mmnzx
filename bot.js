@@ -49,7 +49,7 @@ client.on("guildMemberAdd", member => {
 
 
 رابط السيرفر
-https://discord.gg/yyeuyTU
+https://discord.gg/CNzvKFA
 ! ɢи cℓαи.                              
 الدعووة خاصة لك ي قلبي ... [ ${member}  ]
 **`) 
