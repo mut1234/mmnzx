@@ -1,68 +1,31 @@
-﻿const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
+var prefix = "$";
+client.on("message", message => {
 
-console.log("Welcome Again !");
- 
- client.on("guildMemberRemove", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(` 
-**
-:kissing::heart::eyes: حيااكْ الله  فى سيرفرنا 
-╔╦╦╦═╦╗╔═╦═╦══╦═╗
-║║║║╩╣╚╣═╣║║║║║╩╣
-╚══╩═╩═╩═╩═╩╩╩╩═╝ 
-GN CLAN أقوى سيرفرات الاقاريو سيرفر جن 
-تجمعات فعاليات توزيع رتب بثوث اقاريو كلشي موجود
-‏نقدم لك دعوة لسموك الراقيَ .
-‏لنحظى بجمال حضورك وتواجدك
-•بتنـورونـا الجميع :wink:
-•اي مشكله توآجهك ولا يهمك. عندك الاداره تفضل ونحل مشكلتك مع آي شخص بالسيرفر.:telephone_receiver:
-•عندك فكره موضوع تفضل شآركنا فيه:jack_o_lantern::gift:
-•واخيرا حييييياكم واكيد وجودكم هو اللي بيدعمنا وراح نكون الافضل.
-شرفنا يا عسل:wink: :kissing_heart:
-
-رابط السيرفر
-joined info-اسم السيرفر
-! اسم السيرفر.                              
-الدعووة خاصة لك ي قلبي ... [ ${member}  ]
-**`)
-}).catch(console.error)
-
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
 })
- 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(` 
-**
-:kissing::heart::eyes: حيااكْ الله  فى سيرفرنا 
-╔╦╦╦═╦╗╔═╦═╦══╦═╗
-║║║║╩╣╚╣═╣║║║║║╩╣
-╚══╩═╩═╩═╩═╩╩╩╩═╝ 
-
-‏نقدم لك دعوة لسموك الراقيَ .
-‏لنحظى بجمال حضورك وتواجدك
-•بتنـورونـا الجميع :wink:
-•اي مشكله توآجهك ولا يهمك. عندك الاداره تفضل ونحل مشكلتك مع آي شخص بالسيرفر.:telephone_receiver:
-•عندك فكره موضوع تفضل شآركنا فيه:jack_o_lantern::gift:
-•واخيرا حييييياكم واكيد وجودكم هو اللي بيدعمنا وراح نكون الافضل.
-شرفنا يا عسل:wink: :kissing_heart:
-
-
-رابط السيرفر
-https://discord.gg/CNzvKFA
-! ɢи cℓαи.                              
-الدعووة خاصة لك ي قلبي ... [ ${member}  ]
-**`) 
-}).catch(console.error)
- 
- 
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 
 
-
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : i1Suhaib`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`ɢи cℓαи`,"http://twitch.tv/S-F")
+client.user.setStatus("dnd")
+});
 
 
 
